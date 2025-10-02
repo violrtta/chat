@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Простой чат</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; }
+    .wrap { max-width:800px; margin:10px auto; padding:10px; }
+    h1 { font-size:18px; margin:0 0 10px }
+    #messages { height:360px; overflow:auto; border:1px solid #ccc; padding:6px; background:#fafafa; }
+    .msg { margin:6px 0; padding:6px; border-radius:4px; background:#fff; border:1px solid #ddd; }
+    .meta { font-size:11px; color:#666; margin-bottom:4px; }
+    form { display:flex; gap:6px; margin-top:8px; }
+    input[type=text] { flex:1; padding:8px; font-size:14px; }
+    button { padding:8px 12px; }
+    .small { font-size:12px; color:#666; margin-top:10px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Простой Чат</h1>
+  <div id="messages">Здесь будут сообщения...</div>
+
+  <form id="sendForm">
+    <input id="nick" type="text" placeholder="Ваш ник" />
+    <input id="text" type="text" placeholder="Введите сообщение" />
+    <button type="submit">Отправить</button>
+  </form>
+
+  <div class="small">Этот чат работает через Firebase Realtime Database</div>
+</div>
+
+<script>
+  // ⚠️ Вставь сюда свои данные из Firebase
+  var FIREBASE_CONFIG = {
+    apiKey: "ВСТАВЬ_СВОЙ_API_KEY",
+    authDomain: "YOUR-PROJECT.firebaseapp.com",
+    databaseURL: "https://YOUR-PROJECT.firebaseio.com",
+    projectId: "YOUR-PROJECT",
+    storageBucket: "YOUR-PROJECT.appspot.com",
+    messagingSenderId: "....",
+    appId: "...."
+  };
+
+  // Загрузка SDK
+  (function loadFirebase(){
+    var s1 = document.createElement('script');
+    s1.src = 'https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js';
+    s1.onload
